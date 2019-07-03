@@ -29,11 +29,20 @@
  
   $nim = $_SESSION['nim'];
 
+ 
 
   
 // $d_mahasiswa = mysqli_query($koneksi,"SELECT data_mahasiswa.nama,data_mahasiswa.nim ,data_mahasiswa.phone,data_mahasiswa.alamat, user.level FROM data_mahasiswa INNER JOIN user ON data_mahasiswa.nim=user.username WHERE user.username='$nim'");
 $d_mahasiswa = mysqli_query($koneksi,"SELECT * FROM data_mahasiswa WHERE nim = '$nim'");
 $data= mysqli_fetch_array($d_mahasiswa);
+
+$kelas= $data['kelas'];
+
+$d_jadwal = mysqli_query($koneksi,"SELECT * FROM data_jadwal WHERE kelas = '$kelas'");
+
+
+
+
  
 	?>
     <header>
@@ -154,33 +163,30 @@ $data= mysqli_fetch_array($d_mahasiswa);
     <tr>
       <th scope="col">#</th>
       <th scope="col">Mata Kuliah</th>
-	  <th scope="col">Hari</th>
-      <th scope="col">Jam</th>
+	  <th scope="col">Waktu</th>
+    <th scope="col">Ruangan</th>
       <th scope="col">Kelas</th>
     </tr>
   </thead>
   <tbody>
+  <?php 
+  $no = "1";
+  foreach($d_jadwal as $j):
+
+  ?>
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-	  <td>Ai173</td>
+      <th scope="row"><?php echo $no ?></th>
+      <td><?php echo $j['matkul'] ?></td>
+      <td><?php echo $j['jam'] ?></td>
+      <td><?php echo $j['ruangan'] ?></td>
+	  <td><?php echo $j['kelas'] ?></td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-	  <td>Ai173</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-	  <td>Ai173</td>
-    </tr>
+
+    <?php 
+    $no++;
+  endforeach;
+    ?>
+    
   </tbody>
 </table>
       </div>
