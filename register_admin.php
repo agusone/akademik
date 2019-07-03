@@ -17,7 +17,7 @@ include 'header_footer/header_admin.php';
                             </a>
                         </div>
                         <div class="login-form">
-                            <form action="" method="post">
+                            <form action="proses/register_admin_proses.php" method="post">
                                 <div class="form-group">
                                     <label>Username</label>
                                     <input class="au-input au-input--full" type="text" name="username" placeholder="Username">

@@ -98,7 +98,7 @@ $jadwals  = mysqli_query($koneksi,"SELECT * FROM data_jadwal");
                                         <tbody>
                                         <?php 
                                         $nom ="1";
-                                        foreach($mahasiswa as $m):
+                                        foreach($mahasiswa as $m) if ($nom < 4){
                                         ?>
                                             <tr>
                                                 <td><?php echo $nom ?></td>
@@ -110,11 +110,14 @@ $jadwals  = mysqli_query($koneksi,"SELECT * FROM data_jadwal");
                                             </tr>
                                             <?php 
                                             $nom++;
-                                        endforeach;
+                                         };
                                             ?>
                                             
                                         </tbody>
                                     </table>
+                                    <div class="card-footer text-center">
+                                    <a href="detail_mahasiswa.php"> more </a>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-5">
@@ -135,7 +138,7 @@ $jadwals  = mysqli_query($koneksi,"SELECT * FROM data_jadwal");
                                                     </tr>
                                                     <?php 
                                                     $num ="1";
-                                                    foreach($jadwals as $j):
+                                                    foreach($jadwals as $j) if ($num < 4){
                                                     ?>
                                                         <tr>
                                                         <td><?php echo $num ?></td>
@@ -146,14 +149,22 @@ $jadwals  = mysqli_query($koneksi,"SELECT * FROM data_jadwal");
 
                                                     <?php 
                                                         $num++;
-                                                    endforeach;
+                                                    };
                                                         ?>
                                                     
                                                 </tbody>
                                             </table>
+                                            
                                         </div>
+                                       
+                                    
                                     </div>
+                                
+                                
                                 </div>
+                                <div class="card-footer text-center">
+                                                <a href="detail_jadwal.php"> more </a>
+                                                </div>
                             </div>
                         </div>
                         

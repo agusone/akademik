@@ -28,7 +28,7 @@ if($cek > 0){
 	if($data['level']=="admin"){
  
 		// buat session login dan username
-		$_SESSION['username'] = $username;
+		$_SESSION['username'] = $data['kode_user'];
 		$_SESSION['level'] = "admin";
 		// alihkan ke halaman dashboard admin
 		header("location:halaman_admin.php");
@@ -37,7 +37,7 @@ if($cek > 0){
 	}else if($data['level']=="mahasiswa"){
 		// buat session login dan username
 		$_SESSION['username'] = $username;
-		$_SESSION['nim'] = $data['nim'];
+		$_SESSION['nim'] = $data['kode_user'];
 		$_SESSION['level'] = "mahasiswa";
 		// alihkan ke halaman dashboard pegawai
 		header("location:halaman_mahasiswa.php");
